@@ -4,13 +4,13 @@ var path = require('path')
 
 let constants = require('../util/constants')
 
-let relativePath = path.join(__dirname, '..', 'files', 'input', constants.stationInfoFileName)
+let inputFile = path.join(__dirname, '..', 'files', 'input', constants.stationInfoFileName)
 
 function getStationDetails (id) {
 
     let stationDetails
     
-    let data = fs.readFileSync(relativePath, 'utf8')
+    let data = fs.readFileSync(inputFile, 'utf8')
 
     let JSONObject = JSON.parse(data)
         

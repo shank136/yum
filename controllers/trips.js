@@ -81,8 +81,11 @@ rd.on('line', (line) => {
     obj.memberBirthYear = memberBirthYear
     
     //calculate member age and store value
-    constants.currentYear - memberBirthYear === constants.currentYear? obj.memberAge = constants.unkwown : obj.memberAge = constants.currentYear - memberBirthYear
-    console.log(obj)
+    constants.currentYear - memberBirthYear === constants.currentYear? 
+    obj.memberAge = constants.unkwown : obj.memberAge = constants.currentYear - memberBirthYear
+    
+    //console.log(obj)
+    
     // check for given dates and endStationIds
     if (inputEndDate.includes(obj.endDate) && inputEndStationIds.includes(obj.endStationId)) {
         //console.log(obj)
