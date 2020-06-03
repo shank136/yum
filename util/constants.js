@@ -10,5 +10,9 @@ module.exports = {
     "badRequest" : {
         "status": 400,
         "statusText": "Invalid Status ID"
-    }
+    },
+    "fileReadResponse" : {
+        "status" : "200",
+        "body" : "File processing in progress..."
+      }
 }

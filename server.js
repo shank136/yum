@@ -5,6 +5,7 @@ let dataSource = require('./controllers/datasource')
 let stationDetails = require('./controllers/stationdetails')
 let ageGroups = require('./controllers/agegroups')
 let trips = require('./controllers/trips')
+let constants = require('./util/constants')
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -39,10 +40,7 @@ app.post('/rideragegroups', (req, res) => {
 
   ageGroups.findAgeGroups(endStationIds, endDates)
 
-  let response = {
-    status : "200",
-    body: "File processing in progress..."
-  }
+  let response = constants.fileReadResponse
 
   res.status(response.status).send(response)
 
@@ -62,10 +60,7 @@ app.post('/latesttrips', (req, res) => {
 
   trips.findLatestTrips(endDate, endStationIds)
 
-  let response = {
-    status : "200",
-    body: "File processing in progress..."
-  }
+  let response = constants.fileReadResponse
 
   res.status(response.status).send(response)
 
