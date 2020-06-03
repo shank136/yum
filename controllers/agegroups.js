@@ -100,7 +100,8 @@ rd.on('line', (line) => {
     obj.memberBirthYear = memberBirthYear
     
     //calculate member age and store value
-    constants.currentYear - memberBirthYear === constants.currentYear? obj.memberAge = constants.unkwown : obj.memberAge = constants.currentYear - memberBirthYear
+    constants.currentYear - memberBirthYear === constants.currentYear? 
+    obj.memberAge = constants.unkwown : obj.memberAge = constants.currentYear - memberBirthYear
 
     array.push(obj)
 
@@ -141,7 +142,10 @@ rd.on('close', () => {
 
     console.log(output)
 
-    fs.writeFileSync(outputFilePath + '/rideragegroups.json', JSON.stringify(output))
+    fs.writeFile(outputFilePath + '/rideragegroups.json', JSON.stringify(output), (err) => {
+        if (err) throw err
+        console.log('File was written successfully!')
+    })
 
 })
 }
