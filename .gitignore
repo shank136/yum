@@ -1,0 +1,4 @@
+node_modules/
+./files/input/Divvy_Trips_2019_Q2.txt
+.vscode/
+package-lock.json
