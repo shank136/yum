@@ -14,5 +14,10 @@ module.exports = {
     "fileReadResponse" : {
         "status" : "200",
         "body" : "File processing in progress..."
-      }
+    },
+    "welcomeMessage" : "Welcome to Yum API",
+    "secret": "secretkey",
+    "expiry": '2m',
+    "tokenErrorMessage": 'Please generate new token and try again.',
+    
 }

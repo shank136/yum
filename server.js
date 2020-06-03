@@ -1,69 +1,102 @@
 let express = require('express')
+let jwt = require('jsonwebtoken')
+let bodyParser = require('body-parser')
+
 let app = express()
-let bodyParser = require('body-parser');
+
 let dataSource = require('./controllers/datasource')
 let stationDetails = require('./controllers/stationdetails')
 let ageGroups = require('./controllers/agegroups')
 let trips = require('./controllers/trips')
 let constants = require('./util/constants')
+let middleware = require('./middlewares/middleware')
+let mockUser = require('./util/user')
+
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(bodyParser.raw())
 
-app.get('/loaddatafromsource', (req, res) => {
+app.get('/api', (req, res) => {
+  res.json({message: constants.welcomeMessage})
+})
 
-  dataSource.getData().then((response) => {
+app.post('/api/login', (req, res) => {
+
+  jwt.sign({user: mockUser.user}, constants.secret, {expiresIn: constants.expiry}, (err, token) => {
+    res.json({token})
+  })
+})
+
+app.post('/api/posts', middleware.verifyToken, (req, res) => {
+
+  jwt.verify(req.token, constants.secret, (err, authData) => {
+    if (err) {
+      res.status(403).send({message: constants.welcomeMessage})
+    } else {
+      res.json({ message: 'Post created!', authData})
+    }
+  })
+})
+
+app.post('/api/loadstationinfo', middleware.verifyToken, (req, res) => {
+
+  jwt.verify(req.token, constants.secret, (err, authData) => {
+    if (err) {
+      res.status(403).send({message: constants.tokenErrorMessage})
+    } else {
+      dataSource.getData().then((response) => {
+        res.status(response.status).send({response, authData})
+      })
+    }
+  })
+})
+
+app.post('/api/stationinfo/:id', middleware.verifyToken, (req, res) => {
     
-    res.status(response.status).send(response)
-  
+  jwt.verify(req.token, constants.secret, (err, authData) => {
+    if (err) {
+      res.status(403).send({message: constants.tokenErrorMessage})
+    } else {
+      let stationId = req.params['id']
+      let response = stationDetails.getStationDetails(stationId)
+      res.status(response.status).send({response, authData})
+    }
   })
 
-})
-
-app.get('/stationinformation/:id', (req, res) => {
-    
-  let stationId = req.params['id']
-
-  let response = stationDetails.getStationDetails(stationId)
-    
-    res.status(response.status).send(response)
-})
-
-app.post('/rideragegroups', (req, res) => {
   
-  console.log(req.body)
+})
+
+app.post('/api/agegroups', middleware.verifyToken, (req, res) => {
 
   let endStationIds = req.body.endStationIds
-  
   let endDates = req.body.endDates
 
-  ageGroups.findAgeGroups(endStationIds, endDates)
-
-  let response = constants.fileReadResponse
-
-  res.status(response.status).send(response)
-
+  jwt.verify(req.token, constants.secret, (err, authData) => {
+    if (err) {
+      res.status(403).send({message: constants.tokenErrorMessage})
+    } else {
+      ageGroups.findAgeGroups(endStationIds, endDates)
+      let response = constants.fileReadResponse
+      res.status(response.status).send({response, authData})
+    }
+  })
 })
 
-app.post('/latesttrips', (req, res) => {
+app.post('/api/trips', middleware.verifyToken, (req, res) => {
   
-  console.log(req.body)
-
   let endStationIds = req.body.endStationIds
-  
   let endDate = req.body.endDate
 
-  console.log(endStationIds)
-
-  console.log(endDate)
-
-  trips.findLatestTrips(endDate, endStationIds)
-
-  let response = constants.fileReadResponse
-
-  res.status(response.status).send(response)
-
+  jwt.verify(req.token, constants.secret, (err, authData) => {
+    if (err) {
+      res.status(403).send({message: constants.tokenErrorMessage})
+    } else {
+      trips.findLatestTrips(endDate, endStationIds)
+      let response = constants.fileReadResponse
+      res.status(response.status).send({response, authData})
+    }
+  })
 })
 
 let port = (process.env.PORT || 3000)
