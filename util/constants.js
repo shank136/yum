@@ -17,7 +17,7 @@ module.exports = {
     },
     "welcomeMessage" : "Welcome to Yum API",
     "secret": "secretkey",
-    "expiry": '2m',
+    "expiry": '10m',
     "tokenErrorMessage": 'Please generate new token and try again.',
     "forbidden" : 403,
     "port" : 3000

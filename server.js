@@ -1,9 +1,7 @@
 let express = require('express')
 let jwt = require('jsonwebtoken')
 let bodyParser = require('body-parser')
-
 let app = express()
-
 let dataSource = require('./controllers/datasource')
 let stationDetails = require('./controllers/stationdetails')
 let ageGroups = require('./controllers/agegroups')
@@ -21,10 +19,10 @@ app.get('/api', (req, res) => {
   res.json({message: constants.welcomeMessage})
 })
 
-app.post('/api/login', (req, res) => {
+app.get('/api/login', (req, res) => {
 
-  jwt.sign({user: mockUser.user}, constants.secret, {expiresIn: constants.expiry}, (err, token) => {
-    res.json({token})
+  jwt.sign({user: mockUser.user}, constants.secret, {expiresIn: constants.expiry}, 
+    (err, token) => {res.json({token})
   })
 })
 
@@ -95,3 +93,5 @@ let server = app.listen(port, () => {
   console.log("Listening on port %s...", server.address().port)
 
 })
+
+module.exports = app
