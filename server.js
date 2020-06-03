@@ -28,17 +28,6 @@ app.post('/api/login', (req, res) => {
   })
 })
 
-app.post('/api/posts', middleware.verifyToken, (req, res) => {
-
-  jwt.verify(req.token, constants.secret, (err, authData) => {
-    if (err) {
-      res.status(403).send({message: constants.welcomeMessage})
-    } else {
-      res.json({ message: 'Post created!', authData})
-    }
-  })
-})
-
 app.post('/api/loadstationinfo', middleware.verifyToken, (req, res) => {
 
   jwt.verify(req.token, constants.secret, (err, authData) => {
