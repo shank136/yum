@@ -32,7 +32,7 @@ app.post('/api/loadstationinfo', middleware.verifyToken, (req, res) => {
 
   jwt.verify(req.token, constants.secret, (err, authData) => {
     if (err) {
-      res.status(403).send({message: constants.tokenErrorMessage})
+      res.status(constants.forbidden).send({message: constants.tokenErrorMessage})
     } else {
       dataSource.getData().then((response) => {
         res.status(response.status).send({response, authData})
@@ -45,7 +45,7 @@ app.post('/api/stationinfo/:id', middleware.verifyToken, (req, res) => {
     
   jwt.verify(req.token, constants.secret, (err, authData) => {
     if (err) {
-      res.status(403).send({message: constants.tokenErrorMessage})
+      res.status(constants.forbidden).send({message: constants.tokenErrorMessage})
     } else {
       let stationId = req.params['id']
       let response = stationDetails.getStationDetails(stationId)
@@ -63,7 +63,7 @@ app.post('/api/agegroups', middleware.verifyToken, (req, res) => {
 
   jwt.verify(req.token, constants.secret, (err, authData) => {
     if (err) {
-      res.status(403).send({message: constants.tokenErrorMessage})
+      res.status(constants.forbidden).send({message: constants.tokenErrorMessage})
     } else {
       ageGroups.findAgeGroups(endStationIds, endDates)
       let response = constants.fileReadResponse
@@ -79,7 +79,7 @@ app.post('/api/trips', middleware.verifyToken, (req, res) => {
 
   jwt.verify(req.token, constants.secret, (err, authData) => {
     if (err) {
-      res.status(403).send({message: constants.tokenErrorMessage})
+      res.status(constants.forbidden).send({message: constants.tokenErrorMessage})
     } else {
       trips.findLatestTrips(endDate, endStationIds)
       let response = constants.fileReadResponse
@@ -88,7 +88,7 @@ app.post('/api/trips', middleware.verifyToken, (req, res) => {
   })
 })
 
-let port = (process.env.PORT || 3000)
+let port = (process.env.PORT || constants.port)
 
 let server = app.listen(port, () => {
 
