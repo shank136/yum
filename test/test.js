@@ -17,9 +17,11 @@ describe('Server', () => {
                 .end((err, res) => {
                     res.should.have.status(200)
                     res.body.should.be.a('object')
-                    res.body.should.be.eql({ message: 'Welcome to Yum API' })
+                    res.body.should.be.eql({
+                        message: 'Welcome to Yum API'
+                    })
                 })
-                done()
+            done()
         })
     })
 
@@ -32,7 +34,7 @@ describe('Server', () => {
                     res.body.should.be.a('object')
                     res.body.should.have.property('token')
                 })
-                done()
+            done()
         })
     })
 
@@ -47,11 +49,11 @@ describe('Server', () => {
                     res.body.should.have.property('response')
                     res.body.should.have.property('authData')
                 })
-                done()
+            done()
         })
     })
 
-    
+
     describe('/POST stationinfo', () => {
         it('it should load station information for given id', (done) => {
             chai.request(server)
@@ -63,7 +65,7 @@ describe('Server', () => {
                     res.body.should.have.property('response')
                     res.body.should.have.property('authData')
                 })
-                done()
+            done()
         })
     })
 })
