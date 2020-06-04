@@ -1,0 +1,117 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Yum",
+		"_postman_id": "b697c293-9647-f1e4-8694-1e368163203a",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/api/",
+			"request": {
+				"url": "http://localhost:3000/api/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/login",
+			"request": {
+				"url": "http://localhost:3000/api/login",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/loadstationinfo",
+			"request": {
+				"url": "http://localhost:3000/api/loadstationinfo",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Inl1bXVzZXIxMjMiLCJlbWFpbCI6Inl1bXVzZXIxMjNAeXVtLmNvbSJ9LCJpYXQiOjE1OTEyMTM3MDQsImV4cCI6MTU5MTIxMzgyNH0.P2mR7U3_BhA32xtAg6OMoW8_tfBvol4kf2w_VU4ROew",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/stationinformation/:id",
+			"request": {
+				"url": "http://localhost:3000/api/stationinfo/21",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Inl1bXVzZXIxMjMiLCJlbWFpbCI6Inl1bXVzZXIxMjNAeXVtLmNvbSJ9LCJpYXQiOjE1OTEyMTM3MDQsImV4cCI6MTU5MTIxMzgyNH0.P2mR7U3_BhA32xtAg6OMoW8_tfBvol4kf2w_VU4ROew",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/agegroups",
+			"request": {
+				"url": "http://localhost:3000/api/agegroups",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Inl1bXVzZXIxMjMiLCJlbWFpbCI6Inl1bXVzZXIxMjNAeXVtLmNvbSJ9LCJpYXQiOjE1OTEyMTM3MDQsImV4cCI6MTU5MTIxMzgyNH0.P2mR7U3_BhA32xtAg6OMoW8_tfBvol4kf2w_VU4ROew",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"endStationIds\": \"['195', '125', '164', '211', '249', '206']\",\t\n\t\"endDates\" : \"['2019-04-01', '2019-04-02', '2019-04-03', '2019-07-01']\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/trips",
+			"request": {
+				"url": "http://localhost:3000/api/trips",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Inl1bXVzZXIxMjMiLCJlbWFpbCI6Inl1bXVzZXIxMjNAeXVtLmNvbSJ9LCJpYXQiOjE1OTEyMTM4NDMsImV4cCI6MTU5MTIxMzk2M30.IB7j0w1ycF5RsRm-nbsMdnSkQWeI40GaLtm-5FReOS4",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"endStationIds\": [\"56\", \"59\", \"174\", \"211\", \"107\", \"286\"],\t\n\t\"endDate\" : [\"2019-04-01\"]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
