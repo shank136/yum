@@ -63,3 +63,9 @@ Commands to run the application
 
     Executes test cases for the server. 
     Please provide updated token in test/test.js for successful execution of all test cases. 
+
+3. Docker image can be accessed from the link: https://hub.docker.com/r/shank136/firstimage
+
+    docker pull shank136/firstimage
+
+    Download the docker image and run using docker to access the application.
