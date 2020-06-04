@@ -67,5 +67,4 @@ Commands to run the application
 3. Docker image can be accessed from the link: https://hub.docker.com/r/shank136/firstimage
 
     docker pull shank136/firstimage
-
-    Download the docker image and run using docker to access the application.
+    Download the docker image and run using docker on localhost to access the application.
