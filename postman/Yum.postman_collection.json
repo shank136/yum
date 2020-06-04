@@ -64,6 +64,31 @@
 			"response": []
 		},
 		{
+			"name": "http://localhost:3000/api/loaddivvydatafile",
+			"request": {
+				"url": "http://localhost:3000/api/loaddivvydatafile",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Inl1bXVzZXIxMjMiLCJlbWFpbCI6Inl1bXVzZXIxMjNAeXVtLmNvbSJ9LCJpYXQiOjE1OTEyODUwMzUsImV4cCI6MTU5MTI4NTYzNX0.iLOnnmRFeKIg8oMhmTtrqXNuc2ZvdlvcsW2p0GCNHJA",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
 			"name": "http://localhost:3000/agegroups",
 			"request": {
 				"url": "http://localhost:3000/api/agegroups",

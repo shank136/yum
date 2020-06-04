@@ -55,6 +55,24 @@ app.post('/api/loadstationinfo', middleware.verifyToken, (req, res) => {
   })
 })
 
+app.post('/api/stationinfo/:id', middleware.verifyToken, (req, res) => {
+
+  jwt.verify(req.token, constants.secret, (err, authData) => {
+    if (err) {
+      res.status(constants.forbidden).send({
+        message: constants.tokenErrorMessage
+      })
+    } else {
+      let stationId = req.params['id']
+      let response = stationDetails.getStationDetails(stationId)
+      res.status(response.status).send({
+        response,
+        authData
+      })
+    }
+  })
+})
+
 app.get('/api/loaddivvydatafile', middleware.verifyToken, (req, res) => {
 
   jwt.verify(req.token, constants.secret, (err, authData) => {
@@ -75,25 +93,6 @@ app.get('/api/loaddivvydatafile', middleware.verifyToken, (req, res) => {
   })
 })
 
-app.post('/api/stationinfo/:id', middleware.verifyToken, (req, res) => {
-
-  jwt.verify(req.token, constants.secret, (err, authData) => {
-    if (err) {
-      res.status(constants.forbidden).send({
-        message: constants.tokenErrorMessage
-      })
-    } else {
-      let stationId = req.params['id']
-      let response = stationDetails.getStationDetails(stationId)
-      res.status(response.status).send({
-        response,
-        authData
-      })
-    }
-  })
-
-
-})
 
 app.post('/api/agegroups', middleware.verifyToken, (req, res) => {
 

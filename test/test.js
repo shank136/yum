@@ -42,7 +42,7 @@ describe('Server', () => {
         it('it should save station information', (done) => {
             chai.request(server)
                 .post('/api/loadstationinfo')
-                .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Inl1bXVzZXIxMjMiLCJlbWFpbCI6Inl1bXVzZXIxMjNAeXVtLmNvbSJ9LCJpYXQiOjE1OTEyMTk0ODEsImV4cCI6MTU5MTIyMDA4MX0.vss2XGVDB5GXNlhQP0_loQQO4p-1jUAp-W37gdJBS-w')
+                .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Inl1bXVzZXIxMjMiLCJlbWFpbCI6Inl1bXVzZXIxMjNAeXVtLmNvbSJ9LCJpYXQiOjE1OTEyODU4MjQsImV4cCI6MTU5MTI4NjQyNH0.Ut_zimlF7_ANMuGk8v2k8Waag94szzuVxMij53pqnMY')
                 .end((err, res) => {
                     res.should.have.status(200)
                     res.body.should.be.a('object')
@@ -58,7 +58,7 @@ describe('Server', () => {
         it('it should load station information for given id', (done) => {
             chai.request(server)
                 .post('/api/stationinfo/21')
-                .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Inl1bXVzZXIxMjMiLCJlbWFpbCI6Inl1bXVzZXIxMjNAeXVtLmNvbSJ9LCJpYXQiOjE1OTEyMTk0ODEsImV4cCI6MTU5MTIyMDA4MX0.vss2XGVDB5GXNlhQP0_loQQO4p-1jUAp-W37gdJBS-w')
+                .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6Inl1bXVzZXIxMjMiLCJlbWFpbCI6Inl1bXVzZXIxMjNAeXVtLmNvbSJ9LCJpYXQiOjE1OTEyODU4MjQsImV4cCI6MTU5MTI4NjQyNH0.Ut_zimlF7_ANMuGk8v2k8Waag94szzuVxMij53pqnMY')
                 .end((err, res) => {
                     res.should.have.status(200)
                     res.body.should.be.a('object')
