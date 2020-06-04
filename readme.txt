@@ -28,6 +28,8 @@ The server is organized into the following routes.
     Renders data for the station ID given in the request parameter(:id).
     Authentication token is required and needs to be provided in the headers. Authorization : Bearer <token>.
     If the given station ID is invalid, it returns an appropriate error message.
+    Note: Before making this request, please make sure that station information data is loaded by invoking
+    /api/loadstationinfo.
 
 5. /api/loaddivvydatafile
 
@@ -42,6 +44,8 @@ The server is organized into the following routes.
     Age groups of riders are returned and saved into a JSON file named rideragegroups.json.
     File will be available on the file system /files/output/rideragegroups.json after processing of large data file.
     Approximate time taken for processing over 1 million lines is 1.5 hours.
+    Note: Before making this request, please make sure that Divvy_Trips_2019_Q2 data is loading by invoking
+    /api/loaddivvydatafile.
 
 7.  /api/trips
 
@@ -50,6 +54,8 @@ The server is organized into the following routes.
     Last 20 trips for all given stations on a given date are rendered and saved into data files. 
     Output files will be available on the file system /files/output.tripsforstation_stationID.json.
     Approximate time taken for processing over 1 million lines is 1.5 hours.
+    Note: Before making this request, please make sure that Divvy_Trips_2019_Q2 data is loading by invoking 
+    /api/loaddivvydatafile.
 
 Postman collection is provieded in Postman folder which can be downloaded to execute requests. 
 
