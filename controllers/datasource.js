@@ -4,18 +4,20 @@ let axios = require('axios')
 let request = require('request')
 let unzip = require('unzip')
 let constants = require('../util/constants')
-let url = constants.stationInfoURL
+let stationInfoURL = constants.stationInfoURL
+let divvyDataURL = constants.divvyDataURL
 
 let obj = {}
 
 let relativePath = path.join(__dirname, '..', 'files', 'input', constants.stationInfoFileName)
-let dataFilePath = path.join(__dirname, '..', 'files', 'input', 'Divvy_Trips_2019_Q2.zip')
+let dataFilePath = path.join(__dirname, '..', 'files', 'input', constants.zipFileName)
+let extractToDirectoryPath = path.join(__dirname, '..', 'files', 'input')
 
 const getData = async () => {
 
     try {
 
-        let response = await axios.get(url)
+        let response = await axios.get(stationInfoURL)
 
         fs.writeFile(relativePath, JSON.stringify(response.data), (err) => {
             if (err) throw err
@@ -42,7 +44,7 @@ const getFile = async () => {
     
     try {
 
-        let fileUrl = 'https://s3.amazonaws.com/divvy-data/tripdata/Divvy_Trips_2019_Q2.zip'
+        let fileUrl = divvyDataURL
 
         request({
             url: fileUrl,
@@ -83,9 +85,9 @@ const unzipFile = async () => {
 
         setTimeout(() => {
 
-            let inputFileName = '/Users/shashankchinmulgund/Downloads/yum_latest_code/files/input/Divvy_Trips_2019_Q2.zip'
+            let inputFileName = dataFilePath
 
-            let extractToDirectory = '/Users/shashankchinmulgund/Downloads/yum_latest_code/files/input'
+            let extractToDirectory = extractToDirectoryPath
 
             fs.createReadStream(inputFileName).pipe(unzip.Extract({path: extractToDirectory}))
 
