@@ -10,17 +10,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "adm-zip": "^0.4.14",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "event-stream": "^4.0.1",
     "express": "^4.17.1",
+    "gulp": "^4.0.2",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
     "mocha": "^7.2.0",
     "moment": "^2.26.0",
     "nodemon": "^2.0.4",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "request": "^2.88.2",
+    "unzip": "^0.1.11"
   }
 }

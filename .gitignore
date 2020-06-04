@@ -2,3 +2,8 @@ node_modules/
 ./files/input/Divvy_Trips_2019_Q2.txt
 .vscode/
 package-lock.json
+./files/output/yum.tar
+./files/input/Divvy_Trips_2019_Q2
+./files/input/Divvy_Trips_2019_Q2.zip
+./files/input/__MACOSX/
+./files/input/station_information.json

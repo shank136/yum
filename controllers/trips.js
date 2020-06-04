@@ -6,7 +6,7 @@ let moment = require('moment')
 let _ = require('lodash')
 
 let inputFilePath = path.join(__dirname, '..', 'files', 'input', 'test2.txt')
-//let inputFilePath = path.join(__dirname, '..', 'files', 'input', 'Divvy_Trips_2019_Q2.txt')
+//let inputFilePath = path.join(__dirname, '..', 'files', 'input', 'Divvy_Trips_2019_Q2')
 let outputFilePath = path.join(__dirname, '..', 'files', 'output')
 
 function findLatestTrips(endDate, endStationIds) {

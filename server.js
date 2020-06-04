@@ -55,6 +55,26 @@ app.post('/api/loadstationinfo', middleware.verifyToken, (req, res) => {
   })
 })
 
+app.get('/api/loaddivvydatafile', middleware.verifyToken, (req, res) => {
+
+  jwt.verify(req.token, constants.secret, (err, authData) => {
+    if (err) {
+      res.status(constants.forbidden).send({
+        message: constants.tokenErrorMessage
+      })
+    } else {
+      dataSource.getFile()
+      .then(dataSource.unzipFile())
+      .then((response) => {
+        res.status(response.status).send({
+          response,
+          authData
+        })
+      })
+    }
+  })
+})
+
 app.post('/api/stationinfo/:id', middleware.verifyToken, (req, res) => {
 
   jwt.verify(req.token, constants.secret, (err, authData) => {
