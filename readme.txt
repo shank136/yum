@@ -20,7 +20,7 @@ The server is organized into the following routes.
     Request type: POST
     Renders data from endpoint https://gbfs.divvybikes.com/gbfs/en/station_information.json upon invocation. 
     Authentication token is required and needs to be provided in the headers. Authorization : Bearer <token>.
-    File is saved on the file system /files/input/station_information.json
+    File is saved on the server path /files/input/station_information.json
 
 4. /api/stationinfo/:id
 
