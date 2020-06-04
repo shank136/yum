@@ -63,7 +63,7 @@ Commands to run the application
 
 1. npm run start
 
-    Starts the server on localhost and requests can be made
+    Starts the server on localhost.
 
 2. npm run test
 
