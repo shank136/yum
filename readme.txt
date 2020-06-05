@@ -57,7 +57,7 @@ The server is organized into the following routes.
     Note: Before making this request, please make sure that Divvy_Trips_2019_Q2 data file is loaded by invoking 
     /api/loaddivvydatafile.
 
-Postman collection is provieded in Postman folder which can be downloaded to execute requests. 
+Postman collection is provided in Postman folder which can be downloaded to execute requests. 
 
 Commands to run the application 
 
